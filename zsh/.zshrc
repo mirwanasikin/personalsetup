@@ -48,8 +48,9 @@ eval "$(oh-my-posh init zsh --config ~/jandedobbeleer.omp.json)"
 # Tools
 # ===============================
 eval "$(zoxide init zsh)"
-source /usr/share/fzf/shell/key-bindings.zsh
-
+if command -v fzf >/dev/null; then
+  source <(fzf --zsh)
+fi
 # ===============================
 # Aliases
 # ===============================
@@ -66,3 +67,5 @@ alias cd='z'        # opinionated, personal
 alias suspend='sudo systemctl suspend'
 alias reboot='sudo reboot now'
 
+
+if [ -e /home/tenka/.nix-profile/etc/profile.d/nix.sh ]; then . /home/tenka/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

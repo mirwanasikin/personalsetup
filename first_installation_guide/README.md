@@ -15,7 +15,7 @@ sudo dnf install \
 ```
 **Pasang `Nix`**
 ``` bash
-curl -L https://nixos.org/nix/install | sh
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
 ```
 
 ## Atur DNS 
@@ -57,17 +57,44 @@ sudo firewall-cmd --reload
 
 **Dengan `dnf`**
 ``` bash
-sudo dnf install zsh fzf vim neovim vlc mpv ranger zeoxide fd rgrep fastfetch alacritty
+sudo dnf install zsh vim neovim vlc mpv alacritty
 ```
 **Dengan `flatpak`**
 ``` bash
 flatpak install flathub app.zen_browser.zen com.brave.Browser com.mattjakeman.ExtensionManager com.vscodium.codium md.obsidian.Obsidian org.ferdium.Ferdium org.onlyoffice.desktopeditors
 ```
 
-**Dengan `Nix`**
+## Restore Backup 
+
+**Restore backup dari SSD**
 ``` bash
-nix-env -iA nixpkgs.eza
+rsynch -a --numeric-ids --relative /run/media/tenka/Techbyte/FILE-IRWAN/Lokasi_Backup/ /home/tenka/
 ```
+**Restore backup dari GitHub**
+``` bash
+git clone git@github.com:tenkaasikinn/mydotfiles.git
+```
+## Konfigurasi `Nix`
+
+Buka Repo ***mydotfiles*** yang udah di clone **nix_configuration_file** dan temukan `flake.nix`
+kemudian jalankan perintah ini 
+```zsh
+mkdir -p ~/.config/home-manager
+cp flake.nix ~/.config/home-manager
+cd ~/.config/home-manager
+```
+cek dulu isinya pakai `nano` atau `vim` lalu jalankan 
+
+``` bash
+nix run home-manager/master -- switch --flake .#tenka
+```
+
+**Untuk update Nix** 
+gunakan
+```zsh
+nix flake update
+```
+ingat di lokasi flake.nix berada
 
 ## Ricing
 
@@ -81,16 +108,6 @@ Download beberapa stuff diluar Github
 - [Oh My Posh](https://ohmyposh.dev/)
 - [Lazyvim](https://www.lazyvim.org/)
 
-## Restore Backup 
-
-**Restore backup dari SSD**
-``` bash
-rsynch -a --numeric-ids --relative /run/media/tenka/Techbyte/FILE-IRWAN/Lokasi_Backup/ /home/tenka/
-```
-**Restore backup dari GitHub**
-``` bash
-git clone git@github.com:tenkaasikinn/mydotfiles.git
-```
 
 ## Setup Browser
 
