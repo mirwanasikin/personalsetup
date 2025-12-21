@@ -1,6 +1,6 @@
 [general]
 import= [
-	"~/.config/alacritty/themes/themes/midnight_haze.toml"
+	"~/.config/alacritty/themesr/midnight_haze.toml"
 ]
 
 [font]
