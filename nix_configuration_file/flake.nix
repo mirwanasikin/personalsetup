@@ -22,10 +22,6 @@
           home.homeDirectory = "/home/tenka";
           home.stateVersion = "25.11";
 
-          nixpkgs.config.allowUnfree = true;
-          nixpkgs.config.allowUnfreePredicate = pkg: true;
-          nixpkgs.config.allowInsecure = true;
-
           programs.home-manager.enable = true;
           # === PAKET USER ===
             home.packages = with pkgs; [
