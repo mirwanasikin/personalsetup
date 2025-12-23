@@ -39,6 +39,7 @@
               duf
               dust
               lazygit
+              lm-sensors
             ];
 
             # === FZF ===
