@@ -1,0 +1,43 @@
+* {
+  bg: rgba(15, 20, 25, 0.90);
+  bg-alt: rgba(22, 27, 34, 0.92);
+  fg: #c0caf5;
+  fg-alt: #9aa5ce;
+  accent: #7aa2f7;
+
+  border-color: @accent;
+  background-color: @bg;
+  text-color: @fg;
+}
+
+window {
+    width: 32%;
+    border: 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg-alt;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+listview {
+    background-color: transparent;
+    spacing: 4px;
+}
+
+element {
+    padding: 6px;
+    border-radius: 6px;
+}
+
+element selected {
+    background-color: rgba(122, 162, 247, 0.18);
+}
