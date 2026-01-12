@@ -43,7 +43,6 @@
               procs
 	            neovim
               bluetui
-              mpd
             ];
 
             # === FZF ===
