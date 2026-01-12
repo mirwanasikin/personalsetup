@@ -12,20 +12,16 @@ echo "Mulai konfigurasi firewall: $(date '+%Y-%m-%d %H:%M:%S')"
 # Simpan runtime rules jadi permanent
 firewall-cmd --runtime-to-permanent
 
-# Blok port DNS 53
-firewall-cmd --add-rich-rule='rule family=ipv4 port port="53" protocol="udp" drop' --permanent
-firewall-cmd --add-rich-rule='rule family=ipv4 port port="53" protocol="tcp" drop' --permanent
-
 # Hapus port random / tidak perlu
 ports_to_remove_tcp=(8080 8081-65535 1025-8079)
 ports_to_remove_udp=(1025-65535)
 
 for p in "${ports_to_remove_tcp[@]}"; do
-    firewall-cmd --remove-port="$p"/tcp --permanent || true
+  firewall-cmd --remove-port="$p"/tcp --permanent || true
 done
 
 for p in "${ports_to_remove_udp[@]}"; do
-    firewall-cmd --remove-port="$p"/udp --permanent || true
+  firewall-cmd --remove-port="$p"/udp --permanent || true
 done
 
 # Buka port penting 1714-1764
