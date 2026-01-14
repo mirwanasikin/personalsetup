@@ -3,8 +3,8 @@
 set -euo pipefail
 
 # List Aplikasi
-list_dnf=(zsh alacritty vlc mpv gnome-tweaks docker docker-compose distrobox)
-list_fp=(app.zen_browser.zen com.mattjakeman.ExtensionManager com.vscodium.codium md.obsidian.Obsidian org.ferdium.Ferdium org.onlyoffice.desktopeditors)
+list_dnf=(zsh alacritty docker docker-compose distrobox lm_sensors)
+list_fp=(app.zen_browser.zen com.vscodium.codium md.obsidian.Obsidian org.ferdium.Ferdium org.onlyoffice.desktopeditors com.github.tchx84.Flatseal)
 
 # DNF
 instal_dnf() { dnf install -y "$@" || true; }

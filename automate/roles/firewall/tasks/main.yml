@@ -1,0 +1,12 @@
+- name: Enable firewalld
+  systemd:
+    name: firewalld
+    enabled: yes
+    state: started
+
+- name: Allow SSH
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: enabled
+

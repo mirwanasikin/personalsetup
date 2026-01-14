@@ -1,0 +1,11 @@
+- name: Add kernel vanilla COPR repo
+  get_url:
+    url: https://copr.fedorainfracloud.org/coprs/g/kernel-vanilla/stable/repo/fedora-{{ ansible_facts.distribution_major_version }}/kernel-vanilla-stable.repo
+    dest: /etc/yum.repos.d/kernel-vanilla-stable.repo
+
+- name: Install vanilla kernel
+  dnf:
+    name: kernel
+    enablerepo: copr:copr.fedorainfracloud.org:group_kernel-vanilla:stable
+    state: latest
+

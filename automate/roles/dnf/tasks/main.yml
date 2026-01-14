@@ -1,0 +1,24 @@
+- name: Install container and terminal tools
+  dnf:
+    name:
+      - docker
+      - docker-compose
+      - podman-compose
+      - distrobox
+      - alacritty
+      - zsh
+      - lm_sensors
+    state: present
+
+- name: Enable Docker service
+  systemd:
+    name: docker
+    enabled: true
+    state: started
+
+- name: Add user to docker group
+  user:
+    name: "{{ ansible_facts.user_id }}"
+    groups: docker
+    append: true
+

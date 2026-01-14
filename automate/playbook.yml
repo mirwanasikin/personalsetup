@@ -1,0 +1,12 @@
+- hosts: localhost
+  become: true
+  gather_facts: true
+
+  roles:
+    - { role: base, tags: base }
+    - { role: dnf, tags: dnf }
+    - { role: firewall, tags: firewall }
+    - { role: dns, tags: dns }
+    - { role: flatpak, tags: flatpak }
+    - { role: vanilla_kernel, tags: kernel }
+

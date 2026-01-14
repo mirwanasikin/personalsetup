@@ -1,0 +1,16 @@
+- name: Ensure Flathub exists
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+
+- name: Install Flatpak apps
+  flatpak:
+    name:
+      - com.vscodium.codium
+      - md.obsidian.Obsidian
+      - org.onlyoffice.desktopeditors
+      - org.ferdium.Ferdium
+      - com.github.tchx84.Flatseal
+    state: present
+
