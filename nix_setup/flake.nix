@@ -46,6 +46,7 @@
               cowsay
               figlet
               cava
+              tmux
             ];
 
             # === FZF ===
