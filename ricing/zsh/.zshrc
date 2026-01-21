@@ -51,6 +51,18 @@ eval "$(zoxide init zsh)"
 if command -v fzf >/dev/null; then
   source <(fzf --zsh)
 fi
+
+if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec dbus-run-session sway
+fi
+
+# ===============================
+# Neovim
+# ===============================
+export EDITOR=nvim
+export VISUAL=nvim
+
+
 # ===============================
 # Aliases
 # ===============================
@@ -58,14 +70,18 @@ alias suhu='sensors'
 alias cat='bat'
 alias vi='nvim'
 alias cl='clear'
-
+alias py='python3'
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -lah --git'
 alias tree='eza --tree'
+alias blue='bluetui'
 
 alias cd='z'        # opinionated, personal
 alias suspend='sudo systemctl suspend'
 alias reboot='sudo reboot now'
+alias shutdown='sudo shutdown now'
 
+alias update='sudo /home/tenka/./upgrade.sh'
+alias nixupdate='cd /home/tenka/mydotfiles/nix_configuration_file && nix flake update && nix run home-manager/master -- switch --flake .#tenka' #Update nix
 
 if [ -e /home/tenka/.nix-profile/etc/profile.d/nix.sh ]; then . /home/tenka/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
