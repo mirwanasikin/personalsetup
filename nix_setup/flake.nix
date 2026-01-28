@@ -47,6 +47,7 @@
               figlet
               cava
               tmux
+              aria2
             ];
 
             # === FZF ===
